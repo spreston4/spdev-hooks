@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-interface UseCounterState {
+export interface UseCounterState {
   count: number;
   increment: (value?: number) => void;
   decrement: (value?: number) => void;

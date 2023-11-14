@@ -1,25 +1,21 @@
-import React, { useState } from "react";
+import { useState, ChangeEvent, FocusEvent } from "react";
 
-type ValidationFunction = (value: string) => boolean;
+export type ValidationFunction = (value: string) => boolean;
 
-interface InputState {
+export interface InputState {
   enteredValue: string;
   isTouched: boolean;
 }
 
-interface UseInput {
+export interface UseInput {
   value: string;
   isValid: boolean;
   hasError: boolean;
   valueChangeHandler: (
-    event:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
+    event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
   ) => void | undefined;
   inputBlurHandler: (
-    event:
-      | React.FocusEvent<HTMLInputElement>
-      | React.FocusEvent<HTMLTextAreaElement>
+    event: FocusEvent<HTMLInputElement> | FocusEvent<HTMLTextAreaElement>
   ) => void | undefined;
   resetHandler: () => void;
 }
@@ -37,9 +33,7 @@ const useInput = (validationFunction: ValidationFunction): UseInput => {
   const hasError = !isValid && isTouched;
 
   const valueChangeHandler = (
-    event:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
+    event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
   ) => {
     setInputState({
       enteredValue: event.target.value,
@@ -48,9 +42,7 @@ const useInput = (validationFunction: ValidationFunction): UseInput => {
   };
 
   const inputBlurHandler = (
-    event:
-      | React.FocusEvent<HTMLInputElement>
-      | React.FocusEvent<HTMLTextAreaElement>
+    event: FocusEvent<HTMLInputElement> | FocusEvent<HTMLTextAreaElement>
   ) => {
     setInputState({
       enteredValue,

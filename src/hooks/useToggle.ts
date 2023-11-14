@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-interface UseToggleState {
+export interface UseToggleState {
   toggle: boolean;
   flip: () => void;
 }

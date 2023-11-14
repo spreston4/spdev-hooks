@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, RefObject } from "react";
 
-interface UseOnScreenArgs {
-  ref: React.RefObject<HTMLElement>;
+export interface UseOnScreenArgs {
+  ref: RefObject<HTMLElement>;
   rootMargin?: string;
 }
 

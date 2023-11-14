@@ -1,10 +1,12 @@
 {
   "name": "spdev-hooks",
   "version": "0.1.0",
-  "description": "A collection of useful React utility hooks",
+  "description": "A collection of useful React hooks",
   "license": "MIT",
   "author": "Sam Preston <https://samprestondev.vercel.app/>",
-  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "private": false,
   "devDependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -16,30 +18,16 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "rollup": "^2.79.1",
+    "rollup-plugin-typescript2": "^0.36.0",
     "typescript": "^4.9.5"
   },
+  "peerDependencies": {
+    "react": "~18.0.0",
+    "react-dom": "~18.0.0"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "predeploy": "rollup --config",
+    "deploy": "npm publish"
   }
 }

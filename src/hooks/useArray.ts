@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-interface UseArrayState<T> {
+export interface UseArrayState<T> {
   value: Array<T>;
   set: (value: Array<T>) => void;
   push: (item: T) => void;
